@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+</head>
+<body>
+<form action="jquery3.html" id="myform">
+	<input type="text" name="username" id="username"/>
+	<input type="button" value="전송" id="send"/>
+</form>
+
+<script>
+	$(function(){
+		// 버튼을 클릭하면 form이 갖고있는 action을 변경
+		$("#send").click(function(){
+			// attr은 attribute의 약자 
+			//
+			$("#myform").attr("action", "jquery2.html");
+			$("#myform").submit();
+		})
+	});
+</script>
+</body>
+</html>

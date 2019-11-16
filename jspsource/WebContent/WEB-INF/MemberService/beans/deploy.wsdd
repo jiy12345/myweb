@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MemberService WSDL service -->
+
+  <service name="Member" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://beans"/>
+      <parameter name="wsdlServiceElement" value="MemberService"/>
+      <parameter name="schemaQualified" value="http://beans"/>
+      <parameter name="wsdlServicePort" value="Member"/>
+      <parameter name="className" value="beans.Member"/>
+      <parameter name="wsdlPortType" value="Member"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://beans" xmlns:retNS="http://beans" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getName" qname="operNS:getName" returnQName="retNS:getNameReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://beans" xmlns:retNS="http://beans" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getId" qname="operNS:getId" returnQName="retNS:getIdReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://beans" name="setName" qname="operNS:setName" soapAction="">
+        <parameter xmlns:pns="http://beans" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://beans" name="setId" qname="operNS:setId" soapAction="">
+        <parameter xmlns:pns="http://beans" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://beans" name="setTel" qname="operNS:setTel" soapAction="">
+        <parameter xmlns:pns="http://beans" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tel" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://beans" xmlns:retNS="http://beans" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getTel" qname="operNS:getTel" returnQName="retNS:getTelReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="setName getName setId getId setTel getTel"/>
+
+  </service>
+</deployment>

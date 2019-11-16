@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+</head>
+<body>
+<form action="jquery3.html" id="myform">
+	<label for="username">이름</label>
+	<input type="text" name="username" id="username"/>
+	<label for="usertel">전화번호</label>
+	<input type="text" name="usertel" id="usertel"/>
+	<label for="usertpw">비밀번호</label>
+	<input type="password" name="userpwd" id="userpw"/>
+	<button type="button" id="read">읽기</button>
+	<button type="button" id="modify">수정</button>
+	<button type="button" id="del">삭제</button>
+	
+</form>
+
+<script>
+	$(function(){
+		// 읽기 버튼을 클릭하면 form이 가지고 있는 action을 변경
+		// usertel 태그를 삭제하고 전송
+		$("#read").click(function(){
+			$("#myform").attr("action","jquery1.html");
+			// usertel 정보만 삭제하고
+			$("#usertel").remove();
+			// 전부 보냄
+			$("#myform").submit();
+		})
+		
+		// 수정 버튼을 클릭하면 form이 가지고 있는 action을 변경
+		// userpw 태그를 삭제하고 전송
+		$("#modify").click(function(){
+			$("#myform").attr("action","jquery1.html");
+			// usertel 정보만 삭제하고
+			$("#userpw").remove();
+			// 전부 보냄
+			$("#myform").submit();
+		})
+		
+		// 삭제 버튼을 클릭하면 form이 가지고 있는 action을 변경
+		// 자식 태그를 모두 삭제하고 새로운 자식을 추가한 후 전송 -> 자식태그는 form안에 들어있는 태그들!
+		$("#del").click(function(){
+			// 한꺼번에 모두 지우기
+			$("#myform").empty();
+			$("#myform").append("<input type='hidden' name='no' value='3'>");
+			$("#myform").attr("action","jquery2.html");
+			$("#myform").submit();
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script>
+</head>
+<body>
+<form action="">
+	<input type="radio" name='fruit' id="" value="사과"/>사과
+	<input type="radio" name='fruit' id="" value="바나나"/>바나나
+	<input type="radio" name='fruit' id="" value="포도"/>포도
+	<input type="radio" name='fruit' id="" value="파인애플"/>파인애플
+	<br />
+	<input type="checkbox" name='fruit2' id="" value="사과"/>사과
+	<input type="checkbox" name='fruit2' id="" value="바나나"/>바나나
+	<input type="checkbox" name='fruit2' id="" value="포도"/>포도
+	<input type="checkbox" name='fruit2' id="" value="파인애플"/>파인애플
+</form>
+
+<script>
+	$(function(){
+		// name='fruit' -> 이것도 같은 의미!
+		$("input[type='radio']").click(function(){
+			alert($("input[name='fruit']:checked").val());
+		});		
+		$("input[type='checkbox']").click(function(){
+			var test="";
+			// each는 반복문
+			// 스크립트 형태의 변수는 타입이 없다!
+			// 타입에 변수를 넣을 때마다 바뀜
+			// 변수를 선언하지 않고 써도 오류가 나지는 않는다!
+			$("input[name='fruit2']:checked").each(function(){
+				// 여기서의 this는 클릭된 것을 의미함!
+				test+=$(this).val();
+			});
+			alert(test);
+		});		
+	});
+
+
+
+</script>
+</body>
+</html>
